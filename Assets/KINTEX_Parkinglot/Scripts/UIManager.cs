@@ -196,6 +196,7 @@ namespace KINTEX_Parkinglot.Scripts
         private void InitializeParkingLot(List<GameObject> areaList)
         {
         //각 주차 구역 초기화
+        //수정요망 230109
             foreach (var area in areaList)
             {
                 foreach (Transform space in area.transform)
@@ -279,9 +280,10 @@ namespace KINTEX_Parkinglot.Scripts
                     continue;
                 }
                 //수정요망 ------------230106
-                var area = parkingLot.SlotName.Substring(0, 2);
-                var zoneNo = int.Parse(parkingLot.SlotName.Substring(3, 1));
-                var spaceNo = int.Parse(parkingLot.SlotName.Substring(5, 2));
+                String[] LotNo = parkingLot.SlotName.Split('-');
+                var area = int.Parse(LotNo[0]);
+                var zoneNo = int.Parse(LotNo[1]);
+                var spaceNo = int.Parse(LotNo[2]);
 
                 var targetParkingLot = GetParkingLotSpace(area, zoneNo, spaceNo);
                 if (targetParkingLot.CompareTag("HandicapZone"))
@@ -296,33 +298,39 @@ namespace KINTEX_Parkinglot.Scripts
             }
         }
 
-        private Transform GetParkingLotSpace(string area, int zoneNo, int spaceNo)
+        private Transform GetParkingLotSpace(int area, int zoneNo, int spaceNo)
         {
         //area, zoneNo, spaceNo를 통해 주차공간 추출
-            List<GameObject> targetParkingLotList;
+            List<GameObject> targetParkingLotList = null;
 
-            switch (area)
+            if (12 <= area && area <= 20)
             {
-                case "A":
-                    targetParkingLotList = parkingLotAreaA;
-                    break;
-                case "B":
-                    targetParkingLotList = parkingLotAreaB;
-                    break;
-                case "C":
-                    targetParkingLotList = parkingLotAreaC;
-                    break;
-                case "D":
-                    targetParkingLotList = parkingLotAreaD;
-                    break;
-                case "E":
-                    targetParkingLotList = parkingLotAreaE;
-                    break;
-                default:
-                    return null;
+                targetParkingLotList = parkingLotAreaA;
+                area -= 12;
             }
-
-            return targetParkingLotList[zoneNo].GetComponent<Transform>().GetChild(spaceNo - 1);
+            if (9 <= area && area <= 11)
+            {
+                targetParkingLotList = parkingLotAreaB;
+                area -= 9;
+            }
+            if (2 <= area && area <= 8)
+            {
+                targetParkingLotList = parkingLotAreaC;
+                area -= 2;
+            }
+            if (21 <= area && area <= 24 || area == 26)
+            {
+                targetParkingLotList = parkingLotAreaD;
+                if (area == 26) area -= 22;
+                else area -= 21;
+            }
+            if (27 <= area || area == 25)
+            {
+                targetParkingLotList = parkingLotAreaE;
+                if (area == 25) area -= 25;
+                else area -= 27;
+            }
+            return targetParkingLotList[area].GetComponent<Transform>().GetChild(zoneNo - 1).GetComponent<Transform>().GetChild(spaceNo - 1);
         }
 
         private void SetRefreshTime()
