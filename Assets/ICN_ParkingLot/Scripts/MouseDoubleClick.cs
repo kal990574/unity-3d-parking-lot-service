@@ -1,0 +1,17 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+namespace ICN_ParkingLot.Scripts
+{
+    public class MouseDoubleClick : MonoBehaviour, IPointerClickHandler
+    {
+        //종료 스크립트
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (eventData.clickCount == 2)
+            {
+                UIManager.Instance.ShowAndHideClosePopup(true);
+            }
+        }
+    }
+}

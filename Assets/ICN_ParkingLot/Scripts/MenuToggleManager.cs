@@ -1,0 +1,18 @@
+using UnityEngine;
+
+namespace ICN_ParkingLot.Scripts
+{
+    public class MenuToggleManager : MonoBehaviour
+    {
+        //메인메뉴 버튼 클릭시 스크립트
+        [SerializeField] private int areaNo;
+
+        public void ClickToggle(bool isOn)
+        {
+            if (isOn)
+            {
+                UIManager.Instance.ClickAreaButton(areaNo);
+            }
+        }
+    }
+}
