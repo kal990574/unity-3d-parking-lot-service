@@ -301,29 +301,33 @@ namespace KINTEX_Parkinglot.Scripts
         //area, zoneNo, spaceNo를 통해 주차공간 추출
             List<GameObject> targetParkingLotList = null;
 
-            if (2 <= area && area <= 8)
-            {
+            if (2 <= area && area <= 8) {
                 targetParkingLotList = parkingLotAreaC;
                 area -= 2;
             }
-            if (9 <= area && area <= 11)
-            {
-                targetParkingLotList = parkingLotAreaB;
-                area -= 9;
+            if (9 <= area && area <= 11) {
+                //특이 케이스
+                if (area == 10 && zoneNo == 2 && spaceNo > 22) { 
+                    targetParkingLotList = parkingLotAreaC;
+                    area = 7;
+                    zoneNo -= 1;
+                    spaceNo -= 22;
+                }
+                else {
+                    targetParkingLotList = parkingLotAreaB;
+                    area -= 9;
+                }
             }
-            if (12 <= area && area <= 20)
-            {
+            if (12 <= area && area <= 20) {
                 targetParkingLotList = parkingLotAreaA;
                 area -= 12;
             }
-            if (21 <= area && area <= 24 || area == 26)
-            {
+            if (21 <= area && area <= 24 || area == 26) {
                 targetParkingLotList = parkingLotAreaD;
                 if (area == 26) area -= 22;
                 else area -= 21;
             }
-            if (27 <= area || area == 25)
-            {
+            if (27 <= area || area == 25) {
                 targetParkingLotList = parkingLotAreaE;
                 if (area == 25) area -= 25;
                 else area -= 26;
