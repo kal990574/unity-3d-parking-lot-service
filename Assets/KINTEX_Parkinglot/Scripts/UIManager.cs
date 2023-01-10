@@ -199,13 +199,14 @@ namespace KINTEX_Parkinglot.Scripts
         //수정요망 230109
             foreach (var area in areaList)
             {
-                foreach (Transform space in area.transform)
+                Transform[] spaceList = area.GetComponentsInChildren<Transform>();
+                foreach (Transform space in spaceList)
                 {
                     if (space.name == area.name)
                     {
                         continue;
                     }
-                    //HandicapZone color 구별
+                    if (space.childCount > 0) continue;
                     var parkingLotColor = parkingInitMaterial;
 
                     if (space.CompareTag("HandicapZone"))
