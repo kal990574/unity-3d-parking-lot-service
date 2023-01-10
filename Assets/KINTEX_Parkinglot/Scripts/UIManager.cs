@@ -275,17 +275,14 @@ namespace KINTEX_Parkinglot.Scripts
                 {
                     continue;
                 }
-
-                if (parkingLot.SlotName.Length < 5)
-                {
-                    continue;
-                }
                 //수정요망 ------------230106
                 String[] LotNo = parkingLot.SlotName.Split('-');
                 var area = int.Parse(LotNo[0]);
                 var zoneNo = int.Parse(LotNo[1]);
                 var spaceNo = int.Parse(LotNo[2]);
-
+                Debug.Log(area);
+                Debug.Log(zoneNo);
+                Debug.Log(spaceNo);
                 var targetParkingLot = GetParkingLotSpace(area, zoneNo, spaceNo);
                 if (targetParkingLot.CompareTag("HandicapZone"))
                 {
@@ -304,20 +301,20 @@ namespace KINTEX_Parkinglot.Scripts
         //area, zoneNo, spaceNo를 통해 주차공간 추출
             List<GameObject> targetParkingLotList = null;
 
-            if (12 <= area && area <= 20)
+            if (2 <= area && area <= 8)
             {
-                targetParkingLotList = parkingLotAreaA;
-                area -= 12;
+                targetParkingLotList = parkingLotAreaC;
+                area -= 2;
             }
             if (9 <= area && area <= 11)
             {
                 targetParkingLotList = parkingLotAreaB;
                 area -= 9;
             }
-            if (2 <= area && area <= 8)
+            if (12 <= area && area <= 20)
             {
-                targetParkingLotList = parkingLotAreaC;
-                area -= 2;
+                targetParkingLotList = parkingLotAreaA;
+                area -= 12;
             }
             if (21 <= area && area <= 24 || area == 26)
             {
@@ -331,7 +328,11 @@ namespace KINTEX_Parkinglot.Scripts
                 if (area == 25) area -= 25;
                 else area -= 27;
             }
-            return targetParkingLotList[area].GetComponent<Transform>().GetChild(zoneNo - 1).GetComponent<Transform>().GetChild(spaceNo - 1);
+            var tmp1 = targetParkingLotList[area].transform.GetChild(zoneNo - 1);
+            Debug.Log(tmp1);
+            var tmp2 = tmp1.GetChild(spaceNo - 1);
+            Debug.Log(tmp2);
+            return targetParkingLotList[area].transform.GetChild(zoneNo - 1).GetChild(spaceNo - 1);
         }
 
         private void SetRefreshTime()
