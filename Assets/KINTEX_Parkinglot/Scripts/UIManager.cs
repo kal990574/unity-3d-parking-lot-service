@@ -197,6 +197,7 @@ namespace KINTEX_Parkinglot.Scripts
         {
         //각 주차 구역 초기화
         //수정요망 230109
+        //수정완료 230110
             foreach (var area in areaList)
             {
                 Transform[] spaceList = area.GetComponentsInChildren<Transform>();
