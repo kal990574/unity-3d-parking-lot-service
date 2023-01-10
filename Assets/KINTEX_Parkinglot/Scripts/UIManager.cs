@@ -326,7 +326,7 @@ namespace KINTEX_Parkinglot.Scripts
             {
                 targetParkingLotList = parkingLotAreaE;
                 if (area == 25) area -= 25;
-                else area -= 27;
+                else area -= 26;
             }
             var tmp1 = targetParkingLotList[area].transform.GetChild(zoneNo - 1);
             Debug.Log(tmp1);
