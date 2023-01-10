@@ -67,6 +67,7 @@ namespace KINTEX_Parkinglot.Scripts
                     //jToken -> 각각의 parkinglotdata info
                     Debug.Log(jToken);
                     UIManager.Instance.ClearParkingLotList();
+                    UIManager.Instance.ClearParkingSumData();
                     Debug.Log(jObject["sum"]);
                     // 이부분 수정해야함 -> 230106
                     // 노가다

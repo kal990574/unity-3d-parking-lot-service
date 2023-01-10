@@ -124,6 +124,11 @@ namespace KINTEX_Parkinglot.Scripts
         //주차 공간 초기화
             _parkingLotList.Clear();
         }
+        public void ClearParkingSumData()
+        {
+            //주차 공간 초기화
+            _parkingSumData.Clear();
+        }
 
         public void SetParkingLot()
         {
@@ -208,6 +213,7 @@ namespace KINTEX_Parkinglot.Scripts
                         continue;
                     }
                     if (space.childCount > 0) continue;
+                    if (space.parent.childCount == 1) continue;
                     var parkingLotColor = parkingInitMaterial;
 
                     if (space.CompareTag("HandicapZone"))
@@ -393,7 +399,8 @@ namespace KINTEX_Parkinglot.Scripts
 
             foreach (var area in parkingLot)
             {
-                foreach (Transform space in area.transform)
+                Transform[] spaceList = area.GetComponentsInChildren<Transform>();
+                foreach (Transform space in spaceList)
                 {
                     if (space.name == area.name)
                     {
@@ -409,6 +416,7 @@ namespace KINTEX_Parkinglot.Scripts
                     {
                         continue;
                     }
+                    if (space.parent.childCount == 1) continue;
 
                     space.GetComponent<MeshRenderer>().material = colorMaterial;
                 }
