@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ICN_ParkingLot/Scenes/ICN_Parkinglot.unity
-    guid: 38dd5067977a54a49acfd292eece012d
+    path: Assets/KINTEX_Parkinglot/Scenes/KINTEX_Parkinglot.unity
+    guid: 1fee641706c87bd41bcd9ac16eeb6de2
   m_configObjects: {}
