@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - HandicapZone
+  - LotArea
   layers:
   - Default
   - TransparentFX

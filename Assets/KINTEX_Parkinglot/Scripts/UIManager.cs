@@ -379,7 +379,7 @@ namespace KINTEX_Parkinglot.Scripts
             switch (percentage)
             {
                 case >= 31.0f:
-                    ColorUtility.TryParseHtmlString("#3DE1E5", out parkingLotColor);
+                    ColorUtility.TryParseHtmlString("#3DE1E5", out parkingLotColor); //out 키워드를 활용한 값변경
                     break;
                 case > 3.0f:
                     ColorUtility.TryParseHtmlString("#FFD954", out parkingLotColor);
