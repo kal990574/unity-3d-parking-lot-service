@@ -60,15 +60,15 @@ namespace KINTEX_Parkinglot.Scripts
                 //webresquest success
                 case UnityWebRequest.Result.Success:
                     var jsonResult = Encoding.UTF8.GetString(webRequest.downloadHandler.data);
-                    Debug.Log(jsonResult);
+                    //Debug.Log(jsonResult);
                     var jObject = JObject.Parse(jsonResult);
-                    Debug.Log(jObject);
+                    //Debug.Log(jObject);
                     var jToken = jObject["lists"];
                     //jToken -> 각각의 parkinglotdata info
-                    Debug.Log(jToken);
+                    //Debug.Log(jToken);
                     UIManager.Instance.ClearParkingLotList();
                     UIManager.Instance.ClearParkingSumData();
-                    Debug.Log(jObject["sum"]);
+                    //Debug.Log(jObject["sum"]);
                     // 이부분 수정해야함 -> 230106
                     // 노가다
                     List<JToken> jlist = new List<JToken>();
@@ -87,12 +87,12 @@ namespace KINTEX_Parkinglot.Scripts
                             Free = item["free"].ToString(),
                             In = item["in"].ToString()
                         };
-                        Debug.Log(addSumData.In);
+                        //Debug.Log(addSumData.In);
                         UIManager.Instance.AddSumDataList(addSumData);
                     }
                     foreach (JToken item in jToken)
                     {
-                        Debug.Log(item);
+                        //Debug.Log(item);
                             var addParkingLotData = new ParkingLotData
                             {
                                 SenserName = item["senser_name"]!.ToString(),

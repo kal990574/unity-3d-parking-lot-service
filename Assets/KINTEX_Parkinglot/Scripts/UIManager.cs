@@ -287,9 +287,9 @@ namespace KINTEX_Parkinglot.Scripts
                 var area = int.Parse(LotNo[0]);
                 var zoneNo = int.Parse(LotNo[1]);
                 var spaceNo = int.Parse(LotNo[2]);
-                Debug.Log(area);
-                Debug.Log(zoneNo);
-                Debug.Log(spaceNo);
+                //Debug.Log(area);
+                //Debug.Log(zoneNo);
+                //Debug.Log(spaceNo);
                 var targetParkingLot = GetParkingLotSpace(area, zoneNo, spaceNo);
                 if (targetParkingLot.CompareTag("HandicapZone"))
                 {
@@ -340,9 +340,9 @@ namespace KINTEX_Parkinglot.Scripts
                 else area -= 26;
             }
             var tmp1 = targetParkingLotList[area].transform.GetChild(zoneNo - 1);
-            Debug.Log(tmp1);
+            //Debug.Log(tmp1);
             var tmp2 = tmp1.GetChild(spaceNo - 1);
-            Debug.Log(tmp2);
+            //Debug.Log(tmp2);
             return targetParkingLotList[area].transform.GetChild(zoneNo - 1).GetChild(spaceNo - 1);
         }
 
