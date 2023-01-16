@@ -20,10 +20,4 @@ public class CreateParkingLot : MonoBehaviour
         parkingLot.transform.position = new Vector3(xPosition - 8500, 1f, 6000 - zPosition);
         parkingLot.transform.Rotate(0f, yRotation, 0f);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
