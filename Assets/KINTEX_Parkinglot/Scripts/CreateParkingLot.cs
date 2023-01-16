@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CreateParkingLot : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject Lot;
     void Start()
     {
-        
+        var parkingLot = Instantiate(Lot);
+        parkingLot.transform.position = new Vector3(1, 0, 1);
     }
 
     // Update is called once per frame
