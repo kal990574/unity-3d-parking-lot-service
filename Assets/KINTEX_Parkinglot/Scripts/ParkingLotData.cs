@@ -25,13 +25,6 @@ namespace KINTEX_Parkinglot.Scripts
         public string SlotStatusIndex;
         public string SpaceName;
     }
-    public class SumData
-    {
-        public string All;
-        public string None;
-        public string Free;
-        public string In;
-    }
 }
 /*
             "senser_name": null,
