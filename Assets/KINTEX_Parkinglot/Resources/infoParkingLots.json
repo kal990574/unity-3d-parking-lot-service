@@ -2056,5 +2056,6 @@
     "31-4-12": { "type": "normal", "left": 10079, "top": 10284, "rotate": 0, "sideNode": [544, 549], "showString": "E 57" },
     "31-4-13": { "type": "normal", "left": 10159, "top": 10284, "rotate": 0, "sideNode": [544, 549], "showString": "E 57" },
     "31-4-14": { "type": "normal", "left": 10239, "top": 10284, "rotate": 0, "sideNode": [544, 549], "showString": "E 57" },
-    "31-4-15": { "type": "normal", "left": 10319, "top": 10284, "rotate": 0, "sideNode": [544, 549], "showString": "E 57" },
+    "31-4-15": { "type": "normal", "left": 10319, "top": 10284, "rotate": 0, "sideNode": [544, 549], "showString": "E 57" }
+
 }

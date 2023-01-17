@@ -1,7 +1,11 @@
 using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
+
 namespace KINTEX_Parkinglot.Scripts
 {
     public class CreateParkingLot : MonoBehaviour
@@ -22,10 +26,10 @@ namespace KINTEX_Parkinglot.Scripts
         {
             foreach(var lot in _infoParkingLotsList)
             {
-                string[] LotNo = lot.Name.Split('-');
+               /* string[] LotNo = lot.Name.Split('-');
                 var area = int.Parse(LotNo[0]);
                 var zoneNo = int.Parse(LotNo[1]);
-                var spaceNo = int.Parse(LotNo[2]);
+                var spaceNo = int.Parse(LotNo[2]);*/
                 var parkingLot = Instantiate(Lot);
                 var xPosition = float.Parse(lot.Left);
                 var zPosition = float.Parse(lot.Top);
@@ -36,16 +40,19 @@ namespace KINTEX_Parkinglot.Scripts
         }
         void Start()
         {
+            _infoParkingLotsList = new List<InfoParkingLots>();
             var loadedJson = Resources.Load<TextAsset>("infoParkingLots");
-            JObject jobject = JObject.Parse(loadedJson.ToString());
-            Debug.Log(jobject.ToString());
-            JToken jt = jobject;
-            foreach (JProperty item in jt)
+            var j = JObject.Parse(loadedJson.ToString()).Children();
+            Debug.Log(j.ToString());
+            List<JToken> tokens = j.Children().ToList();
+            foreach (var item in tokens)
             {
-                Debug.Log(item.Name.ToString());
+                //JProperty jProperty = item.ToObject<JProperty>();
+                //Debug.Log(item.Value<string>());
+                Debug.Log(item);
                 var addInfoParkingLots = new InfoParkingLots
                 {
-                    Name = item.Name.ToString(),
+                    //Name = jProperty.Name.ToString(),
                     Type = item["type"].ToString(),
                     Left = item["left"].ToString(),
                     Top = item["top"].ToString(),
