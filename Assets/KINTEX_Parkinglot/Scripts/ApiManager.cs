@@ -41,7 +41,7 @@ namespace KINTEX_Parkinglot.Scripts
         {
             //API ¿¬µ¿
             const string uri = URL;
-            Debug.Log(uri);
+            //Debug.Log(uri);
             using UnityWebRequest webRequest = UnityWebRequest.Get(uri);
             yield return webRequest.SendWebRequest();
         

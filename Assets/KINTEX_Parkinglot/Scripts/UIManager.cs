@@ -89,6 +89,8 @@ namespace KINTEX_Parkinglot.Scripts
 
         private List<ParkingSumData> _parkingSumData;
 
+        private List<InfoParkingLots> _infoParkingLotsList;
+
         void Awake()
         {
             if (Instance != null)
@@ -117,6 +119,11 @@ namespace KINTEX_Parkinglot.Scripts
         public void AddSumDataList(ParkingSumData sumdata)
         {
             _parkingSumData.Add(sumdata);
+        }
+
+        public void AddInfoParkingLots(InfoParkingLots infoParkinglots)
+        {
+            _infoParkingLotsList.Add(infoParkinglots);
         }
 
         public void ClearParkingLotList()
