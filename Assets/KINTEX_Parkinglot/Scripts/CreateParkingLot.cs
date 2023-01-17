@@ -18,6 +18,7 @@ namespace KINTEX_Parkinglot.Scripts
         [SerializeField] private List<GameObject> parkingLotAreaD;
         [SerializeField] private List<GameObject> parkingLotAreaE;
         private List<InfoParkingLots> _infoParkingLotsList;
+        private int listCnt = 0;
         public void AddInfoParkingLots(InfoParkingLots infoParkinglots)
         {
             _infoParkingLotsList.Add(infoParkinglots);
@@ -26,11 +27,12 @@ namespace KINTEX_Parkinglot.Scripts
         {
             foreach(var lot in _infoParkingLotsList)
             {
-               /* string[] LotNo = lot.Name.Split('-');
+                string[] LotNo = lot.Name.Split('-');
                 var area = int.Parse(LotNo[0]);
                 var zoneNo = int.Parse(LotNo[1]);
-                var spaceNo = int.Parse(LotNo[2]);*/
+                var spaceNo = int.Parse(LotNo[2]);
                 var parkingLot = Instantiate(Lot);
+                //Debug.Log(spaceNo);
                 var xPosition = float.Parse(lot.Left);
                 var zPosition = float.Parse(lot.Top);
                 var yRotation = float.Parse(lot.Rotate);
@@ -43,13 +45,13 @@ namespace KINTEX_Parkinglot.Scripts
             _infoParkingLotsList = new List<InfoParkingLots>();
             var loadedJson = Resources.Load<TextAsset>("infoParkingLots");
             var j = JObject.Parse(loadedJson.ToString()).Children();
-            Debug.Log(j.ToString());
+            var jobject = JObject.Parse(loadedJson.ToString());
             List<JToken> tokens = j.Children().ToList();
             foreach (var item in tokens)
             {
                 //JProperty jProperty = item.ToObject<JProperty>();
                 //Debug.Log(item.Value<string>());
-                Debug.Log(item);
+                Debug.Log(item.Parent.First);
                 var addInfoParkingLots = new InfoParkingLots
                 {
                     //Name = jProperty.Name.ToString(),
@@ -62,6 +64,12 @@ namespace KINTEX_Parkinglot.Scripts
                 };
                 //Debug.Log(addSumData.In);
                 AddInfoParkingLots(addInfoParkingLots);
+            }
+            foreach (var item in (JToken)jobject)
+            {
+                JProperty jProperty = item.ToObject<JProperty>();
+                _infoParkingLotsList[i].Name = jProperty.Name.ToString();
+                listCnt += 1;
             }
             SetInfoParkingLots();
         }
