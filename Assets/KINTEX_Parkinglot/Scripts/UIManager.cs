@@ -201,9 +201,7 @@ namespace KINTEX_Parkinglot.Scripts
         private void InitializeParkingLot(List<GameObject> areaList)
         {
         //각 주차 구역 초기화
-        //수정요망 230109
-        //수정완료 230110
-            foreach (var area in areaList)
+            foreach (var area in areaList)  
             {
                 Transform[] spaceList = area.GetComponentsInChildren<Transform>();
                 foreach (Transform space in spaceList)
@@ -343,7 +341,7 @@ namespace KINTEX_Parkinglot.Scripts
             //Debug.Log(tmp1);
             var tmp2 = tmp1.GetChild(spaceNo - 1);
             //Debug.Log(tmp2);
-            return targetParkingLotList[area].transform.GetChild(zoneNo - 1).GetChild(spaceNo - 1);
+            return tmp2;
         }
 
         private void SetRefreshTime()

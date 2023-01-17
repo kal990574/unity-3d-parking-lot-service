@@ -93,27 +93,27 @@ namespace KINTEX_Parkinglot.Scripts
                         //Debug.Log(item);
                             var addParkingLotData = new ParkingLotData
                             {
-                                SenserName = item["senser_name"]!.ToString(),
-                                SlotName = item["slot_name"]!.ToString(),
-                                CctvIp = item["cctv_ip"]!.ToString(),
-                                Top = item["top"]!.ToString(),
-                                Left = item["left"]!.ToString(),
-                                Width = item["width"]!.ToString(),
-                                Height = item["height"]!.ToString(),
-                                RecommendLockId = item["recommend_lock_id"]!.ToString(),
-                                RecommendLockDate = item["recommend_lock_date"]!.ToString(),
-                                SlotType = item["slot_type"]!.ToString(),
-                                SlotStatus = item["slot_status"]!.ToString(),
-                                CreatedOn = item["created_on"]!.ToString(),
-                                ModifiedOn = item["modified_on"]!.ToString(),
-                                Uuid = item["uuid"]!.ToString(),
-                                SpotUuid = item["spot_uuid"]!.ToString(),
-                                FloorUuid = item["floor_uuid"]!.ToString(),
-                                LeftPillarUuid = item["left_pillar_uuid"]!.ToString(),
-                                RightPillarUuid = item["right_pillar_uuid"]!.ToString(),
-                                SlotTypeBit = item["slot_type_bit"]!.ToString(),
-                                SlotStatusIndex = item["slot_status_index"]!.ToString(),
-                                SpaceName = item["space_name"]!.ToString()
+                                SenserName = item["senser_name"].ToString(),
+                                SlotName = item["slot_name"].ToString(),
+                                CctvIp = item["cctv_ip"].ToString(),
+                                Top = item["top"].ToString(),
+                                Left = item["left"].ToString(),
+                                Width = item["width"].ToString(),
+                                Height = item["height"].ToString(),
+                                RecommendLockId = item["recommend_lock_id"].ToString(),
+                                RecommendLockDate = item["recommend_lock_date"].ToString(),
+                                SlotType = item["slot_type"].ToString(),
+                                SlotStatus = item["slot_status"].ToString(),
+                                CreatedOn = item["created_on"].ToString(),
+                                ModifiedOn = item["modified_on"].ToString(),
+                                Uuid = item["uuid"].ToString(),
+                                SpotUuid = item["spot_uuid"].ToString(),
+                                FloorUuid = item["floor_uuid"].ToString(),
+                                LeftPillarUuid = item["left_pillar_uuid"].ToString(),
+                                RightPillarUuid = item["right_pillar_uuid"].ToString(),
+                                SlotTypeBit = item["slot_type_bit"].ToString(),
+                                SlotStatusIndex = item["slot_status_index"].ToString(),
+                                SpaceName = item["space_name"].ToString()
                              };
                             UIManager.Instance.AddParkingLotList(addParkingLotData);
                     }
