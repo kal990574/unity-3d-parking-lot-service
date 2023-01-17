@@ -19,6 +19,8 @@ namespace KINTEX_Parkinglot.Scripts
         [SerializeField] private List<GameObject> parkingLotAreaE;
         private List<InfoParkingLots> _infoParkingLotsList;
         private int listCnt = 0;
+        private float getX = 8500f;
+        private float getZ = 6000f;
         public void AddInfoParkingLots(InfoParkingLots infoParkinglots)
         {
             _infoParkingLotsList.Add(infoParkinglots);
@@ -32,11 +34,11 @@ namespace KINTEX_Parkinglot.Scripts
                 var zoneNo = int.Parse(LotNo[1]);
                 var spaceNo = int.Parse(LotNo[2]);
                 var parkingLot = Instantiate(Lot);
-                //Debug.Log(spaceNo);
+                Debug.Log(spaceNo);
                 var xPosition = float.Parse(lot.Left);
                 var zPosition = float.Parse(lot.Top);
                 var yRotation = float.Parse(lot.Rotate);
-                parkingLot.transform.position = new Vector3(xPosition - 8500, 1f, 6000 - zPosition);
+                parkingLot.transform.position = new Vector3(xPosition - getX, 1f, getZ - zPosition);
                 parkingLot.transform.Rotate(0f, yRotation, 0f);
             }
         }
@@ -51,7 +53,7 @@ namespace KINTEX_Parkinglot.Scripts
             {
                 //JProperty jProperty = item.ToObject<JProperty>();
                 //Debug.Log(item.Value<string>());
-                Debug.Log(item.Parent.First);
+                //Debug.Log(item.Parent.First);
                 var addInfoParkingLots = new InfoParkingLots
                 {
                     //Name = jProperty.Name.ToString(),
@@ -68,7 +70,7 @@ namespace KINTEX_Parkinglot.Scripts
             foreach (var item in (JToken)jobject)
             {
                 JProperty jProperty = item.ToObject<JProperty>();
-                _infoParkingLotsList[i].Name = jProperty.Name.ToString();
+                _infoParkingLotsList[listCnt].Name = jProperty.Name.ToString();
                 listCnt += 1;
             }
             SetInfoParkingLots();
