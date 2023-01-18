@@ -24,8 +24,8 @@ namespace KINTEX_Parkinglot.Scripts
         [SerializeField] private List<GameObject> carModelList;
         private List<InfoParkingLots> _infoParkingLotsList;
         private int listCnt = 0;
-        private float getX = 850f;
-        private float getZ = 600f;
+        private float getX = 420f;
+        private float getZ = 300f;
         private void AddInfoParkingLots(InfoParkingLots infoParkinglots)
         {
             _infoParkingLotsList.Add(infoParkinglots);
@@ -42,8 +42,8 @@ namespace KINTEX_Parkinglot.Scripts
                 var parkingLotParent = GetParkingLotSpace(area, zoneNo, spaceNo);
                 //Debug.Log(spaceNo);
                 //Debug.Log(targetParkingLot);
-                var xPosition = float.Parse(lot.Left) / 10;
-                var zPosition = float.Parse(lot.Top) / 10; ;
+                var xPosition = float.Parse(lot.Left) / 20;
+                var zPosition = float.Parse(lot.Top) / 20; ;
                 var yRotation = float.Parse(lot.Rotate);
                 parkingLot.transform.position = new Vector3(xPosition - getX, 1f, getZ - zPosition);
                 parkingLot.transform.Rotate(0f, yRotation, 0f);
