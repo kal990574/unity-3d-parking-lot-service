@@ -82,6 +82,9 @@ namespace KINTEX_Parkinglot.Scripts
         [SerializeField] private Material parkingImpossibleHandicapMaterial;
 
         [Space(10)]
+        [SerializeField] private GameObject Lot;
+
+        [Space(10)]
         //8 color cars
         [SerializeField] private List<GameObject> carModelList;
 
@@ -89,7 +92,6 @@ namespace KINTEX_Parkinglot.Scripts
 
         private List<ParkingSumData> _parkingSumData;
 
-        private List<InfoParkingLots> _infoParkingLotsList;
 
         void Awake()
         {
@@ -119,11 +121,6 @@ namespace KINTEX_Parkinglot.Scripts
         public void AddSumDataList(ParkingSumData sumdata)
         {
             _parkingSumData.Add(sumdata);
-        }
-
-        public void AddInfoParkingLots(InfoParkingLots infoParkinglots)
-        {
-            _infoParkingLotsList.Add(infoParkinglots);
         }
 
         public void ClearParkingLotList()
@@ -277,7 +274,6 @@ namespace KINTEX_Parkinglot.Scripts
             parkingLotAreaEImageList[0].color = parkingLotColor;
             parkingLotAreaEImageList[1].color = parkingLotColor;
         }
-
         private void AdjustParkingLotData()
         {
         //주차되어 있는 공간에 carmodel 위치 시키기
@@ -295,20 +291,18 @@ namespace KINTEX_Parkinglot.Scripts
                 //Debug.Log(area);
                 //Debug.Log(zoneNo);
                 //Debug.Log(spaceNo);
-                var targetParkingLot = GetParkingLotSpace(area, zoneNo, spaceNo);
-                if (targetParkingLot.CompareTag("HandicapZone"))
+                var target = GetParkingLotSpace(area, zoneNo, spaceNo);
+                if (target.CompareTag("HandicapZone"))
                 {
-                    targetParkingLot.GetComponent<MeshRenderer>().material = parkingImpossibleHandicapMaterial;
-                }
-                
+                    target.GetComponent<MeshRenderer>().material = parkingImpossibleHandicapMaterial;
+                };
                 var carNo = Random.Range(0, 7);
-                var carModel = Instantiate(carModelList[carNo], targetParkingLot.position, targetParkingLot.rotation);
-                carModel.transform.Rotate(0f, 90f, 0f);
-                carModel.transform.parent = targetParkingLot;
+                var carModel = Instantiate(carModelList[carNo], target.position, target.rotation);
+                carModel.transform.parent = target;
             }
         }
 
-        private Transform GetParkingLotSpace(int area, int zoneNo, int spaceNo)
+        public Transform GetParkingLotSpace(int area, int zoneNo, int spaceNo)
         {
         //area, zoneNo, spaceNo를 통해 주차공간 추출
             List<GameObject> targetParkingLotList = null;
@@ -319,17 +313,15 @@ namespace KINTEX_Parkinglot.Scripts
             }
             if (9 <= area && area <= 11) {
                 //특이 케이스
-                if (area == 10 && zoneNo == 2 && spaceNo > 22) { 
+                /*if (area == 10 && zoneNo == 2 && spaceNo > 22) { 
                     targetParkingLotList = parkingLotAreaC;
                     area = 7;
                     zoneNo -= 1;
                     spaceNo -= 22;
+                }*/
+                targetParkingLotList = parkingLotAreaB;
+                area -= 9;
                 }
-                else {
-                    targetParkingLotList = parkingLotAreaB;
-                    area -= 9;
-                }
-            }
             if (12 <= area && area <= 20) {
                 targetParkingLotList = parkingLotAreaA;
                 area -= 12;
@@ -347,7 +339,7 @@ namespace KINTEX_Parkinglot.Scripts
             var tmp1 = targetParkingLotList[area].transform.GetChild(zoneNo - 1);
             //Debug.Log(tmp1);
             var tmp2 = tmp1.GetChild(spaceNo - 1);
-            //Debug.Log(tmp2);
+            Debug.Log(tmp2);
             return tmp2;
         }
 

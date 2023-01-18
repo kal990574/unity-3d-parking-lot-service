@@ -1,12 +1,5 @@
 {
-    "2-1-1": { 
-    "type": "normal", 
-    "left": 10847, 
-    "top": 3396, 
-    "rotate": 90, 
-    "sideNode": [229, 239], 
-    "showString": "C 31" 
-},
+    "2-1-1": { "type": "normal", "left": 10847, "top": 3396, "rotate": 90, "sideNode": [229, 239], "showString": "C 31" },
     "2-1-2": { "type": "normal", "left": 10847, "top": 3316, "rotate": 90, "sideNode": [229, 239], "showString": "C 31" },
     "2-1-3": { "type": "normal", "left": 10847, "top": 3236, "rotate": 90, "sideNode": [229, 239], "showString": "C 31" },
     "2-1-4": { "type": "normal", "left": 10847, "top": 3124, "rotate": 90, "sideNode": [229, 239], "showString": "C 21" },
