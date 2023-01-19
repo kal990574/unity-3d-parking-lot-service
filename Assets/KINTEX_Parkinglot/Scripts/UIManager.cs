@@ -339,7 +339,7 @@ namespace KINTEX_Parkinglot.Scripts
             var tmp1 = targetParkingLotList[area].transform.GetChild(zoneNo - 1);
             //Debug.Log(tmp1);
             var tmp2 = tmp1.GetChild(spaceNo - 1);
-            Debug.Log(tmp2);
+            //Debug.Log(tmp2);
             return tmp2;
         }
 

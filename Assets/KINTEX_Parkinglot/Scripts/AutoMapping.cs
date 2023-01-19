@@ -99,7 +99,7 @@ namespace KINTEX_Parkinglot.Scripts
             _infoParkingLotsList = new List<InfoParkingLots>();
             var loadedJson = Resources.Load<TextAsset>("infoParkingLots");
             var j = JObject.Parse(loadedJson.ToString()).Children();
-            Debug.Log(j.Children().ToList());
+            //Debug.Log(j.Children().ToList());
             List<JToken> tokens = j.Children().ToList();
             foreach (var item in tokens)
             {
