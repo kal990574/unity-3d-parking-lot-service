@@ -205,6 +205,90 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2695752527418281973, guid: 2e78702d2c8340248a3b342db190feac, type: 3}
   m_PrefabInstance: {fileID: 2695752528655956107}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &653355998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653356001}
+  - component: {fileID: 653356000}
+  - component: {fileID: 653355999}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &653355999
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653355998}
+  m_Enabled: 1
+--- !u!20 &653356000
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653355998}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &653356001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653355998}
+  m_LocalRotation: {x: 0.69425535, y: -0.0010852381, z: 0.0010467197, w: 0.7197273}
+  m_LocalPosition: {x: -5.852727, y: 280.0896, z: 102.54968}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &691071803
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnimationRoot
       objectReference: {fileID: 0}
+    - target: {fileID: 537010121083724289, guid: 5655f19844a85dc4fb490d63d6770bbc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 537010121083724291, guid: 5655f19844a85dc4fb490d63d6770bbc, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1213,6 +1301,14 @@ PrefabInstance:
       objectReference: {fileID: 691071805}
     - target: {fileID: 4690411041433050204, guid: 2e78702d2c8340248a3b342db190feac, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4820366839969020957, guid: 2e78702d2c8340248a3b342db190feac, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4820366839969020957, guid: 2e78702d2c8340248a3b342db190feac, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5896440198595859225, guid: 2e78702d2c8340248a3b342db190feac, type: 3}
@@ -2015,6 +2111,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8293396943665264393, guid: 174247d6b127cd242a7d821b13490366, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390183878908124006, guid: 174247d6b127cd242a7d821b13490366, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8489300037654893613, guid: 174247d6b127cd242a7d821b13490366, type: 3}
