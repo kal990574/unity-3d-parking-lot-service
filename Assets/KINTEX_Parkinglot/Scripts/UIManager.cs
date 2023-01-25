@@ -204,8 +204,8 @@ namespace KINTEX_Parkinglot.Scripts
 
         private void InitializeParkingLot(List<GameObject> areaList)
         {
-        //각 주차 구역 초기화
-            foreach (var area in areaList)  
+            //각 주차 구역 초기화
+            foreach (var area in areaList)
             {
                 Transform[] spaceList = area.GetComponentsInChildren<Transform>();
                 foreach (Transform space in spaceList)
@@ -214,8 +214,7 @@ namespace KINTEX_Parkinglot.Scripts
                     {
                         continue;
                     }
-                    if (space.childCount > 0) continue;
-                    if (space.parent.childCount == 1) continue;
+                    if (space.childCount > 3) continue;
                     var parkingLotColor = parkingInitMaterial;
 
                     if (space.CompareTag("HandicapZone"))
