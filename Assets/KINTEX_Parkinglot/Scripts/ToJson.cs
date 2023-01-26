@@ -20,10 +20,10 @@ namespace KINTEX_Parkinglot.Scripts
                 {
                     var pData = new InfoPillarData();
                     if (infoPillar.childCount > 0) continue;
-                    Debug.Log(infoPillar);
-                    Debug.Log(infoPillar.position.x);
+                    //Debug.Log(infoPillar);
+                    //Debug.Log(infoPillar.position.x);
                     pData.xPosition = infoPillar.position.x;
-                    Debug.Log(pData.xPosition);
+                    //Debug.Log(pData.xPosition);
                     pData.zPosition = infoPillar.position.z;
                     pData.yRotation = infoPillar.rotation.y;
                     list.Add(pData);
@@ -34,9 +34,9 @@ namespace KINTEX_Parkinglot.Scripts
         {
             var _infoPillarDataList = new List<InfoPillarData>();
             GetData(pillarData, _infoPillarDataList);
-            Debug.Log(_infoPillarDataList[0].xPosition);
-            Debug.Log(_infoPillarDataList[1].xPosition);
-            Debug.Log(_infoPillarDataList[2].xPosition);
+            //Debug.Log(_infoPillarDataList[0].xPosition);
+            //Debug.Log(_infoPillarDataList[1].xPosition);
+            //Debug.Log(_infoPillarDataList[2].xPosition);
             FileStream stream = new FileStream(Application.dataPath + "/test.json", FileMode.OpenOrCreate);
             string jsonData = JsonConvert.SerializeObject(_infoPillarDataList, Formatting.Indented);
             byte[] data = Encoding.UTF8.GetBytes(jsonData);
