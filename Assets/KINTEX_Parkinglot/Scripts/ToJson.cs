@@ -20,8 +20,10 @@ namespace KINTEX_Parkinglot.Scripts
                 Transform[] pList = pillar.GetComponentsInChildren<Transform>();
                 foreach (var infoPillar in pList)
                 {
-                    Debug.Log(infoPillar);
                     if (infoPillar.childCount > 0) continue;
+                    Debug.Log(infoPillar);
+                    Debug.Log(infoPillar.position);
+                    Debug.Log(infoPillar.localPosition);
                     pData.xPosition = infoPillar.position.x;
                     pData.zPosition = infoPillar.position.z;
                     pData.yRotation = infoPillar.rotation.y;
@@ -29,11 +31,11 @@ namespace KINTEX_Parkinglot.Scripts
                 }
             }
         }
-        void Start()
+        void Awake()
         {
             _infoPillarDataList = new List<InfoPillarData>();
             GetData(pillarData);
-            Debug.Log(_infoPillarDataList[0].xPosition);
+            //Debug.Log(_infoPillarDataList[0].xPosition);
             FileStream stream = new FileStream(Application.dataPath + "/infoPillarData.json", FileMode.OpenOrCreate);
             string jsonData = JsonConvert.SerializeObject(_infoPillarDataList, Formatting.Indented);
             byte[] data = Encoding.UTF8.GetBytes(jsonData);

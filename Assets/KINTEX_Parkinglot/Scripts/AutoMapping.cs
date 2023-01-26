@@ -63,7 +63,7 @@ namespace KINTEX_Parkinglot.Scripts
                 var yRotation = pillar.yRotation;
                 var pillarspace = Instantiate(Pillar);
                 pillarspace.transform.position = new Vector3(xPosition, 0, zPosition);
-                pillarspace.transform.Rotate(0f, yRotation, 0f);
+                pillarspace.transform.rotation = Quaternion.Euler(0, yRotation, 0);
                 pillarspace.transform.parent = PillarParent.transform;
             }
         }
