@@ -20,6 +20,7 @@ namespace KINTEX_Parkinglot.Scripts
                 Transform[] pList = pillar.GetComponentsInChildren<Transform>();
                 foreach (var infoPillar in pList)
                 {
+                    Debug.Log(infoPillar);
                     if (infoPillar.childCount > 0) continue;
                     pData.xPosition = infoPillar.position.x;
                     pData.zPosition = infoPillar.position.z;

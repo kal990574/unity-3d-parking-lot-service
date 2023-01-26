@@ -11,6 +11,8 @@ namespace KINTEX_Parkinglot.Scripts
     public class AutoMapping : MonoBehaviour
     {
         [SerializeField] private GameObject Lot;
+        [SerializeField] private GameObject Pillar;
+        [SerializeField] private GameObject PillarParent;
 
         [Space(10)]
         [SerializeField] private List<GameObject> parkingLotAreaA;
@@ -23,12 +25,17 @@ namespace KINTEX_Parkinglot.Scripts
         //8 color cars
         [SerializeField] private List<GameObject> carModelList;
         private List<InfoParkingLots> _infoParkingLotsList;
+        private List<InfoPillarData> _infoPillarDataList;
         private int listCnt = 0;
         private float getX = 420f;
         private float getZ = 300f;
         private void AddInfoParkingLots(InfoParkingLots infoParkinglots)
         {
             _infoParkingLotsList.Add(infoParkinglots);
+        }
+        private void AddInfoPillarData(InfoPillarData infoPillarData)
+        {
+            _infoPillarDataList.Add(infoPillarData);
         }
         private void SetInfoParkingLots()
         {
@@ -43,11 +50,21 @@ namespace KINTEX_Parkinglot.Scripts
                 //Debug.Log(spaceNo);
                 //Debug.Log(targetParkingLot);
                 var xPosition = float.Parse(lot.Left) / 20;
-                var zPosition = float.Parse(lot.Top) / 20; ;
+                var zPosition = float.Parse(lot.Top) / 20;
                 var yRotation = float.Parse(lot.Rotate);
                 parkingLot.transform.position = new Vector3(xPosition - getX, 0.1f, getZ - zPosition);
                 parkingLot.transform.Rotate(0f, yRotation, 0f);
                 parkingLot.transform.parent = parkingLotParent;
+            }
+            foreach(var pillar in _infoPillarDataList)
+            {
+                var xPosition = pillar.xPosition;
+                var zPosition = pillar.zPosition;
+                var yRotation = pillar.yRotation;
+                var pillarspace = Instantiate(Pillar);
+                pillarspace.transform.position = new Vector3(xPosition, 0, zPosition);
+                pillarspace.transform.Rotate(0f, yRotation, 0f);
+                pillarspace.transform.parent = PillarParent.transform;
             }
         }
         private Transform GetParkingLotSpace(int area, int zoneNo, int spaceNo)
@@ -97,11 +114,16 @@ namespace KINTEX_Parkinglot.Scripts
         void Awake()
         {
             _infoParkingLotsList = new List<InfoParkingLots>();
-            var loadedJson = Resources.Load<TextAsset>("infoParkingLots");
-            var j = JObject.Parse(loadedJson.ToString()).Children();
+            _infoPillarDataList = new List<InfoPillarData>();  
+            var loadedLots = Resources.Load<TextAsset>("infoParkingLots");
+            var loadedPillars = Resources.Load<TextAsset>("infoPillarData");
+            var j1 = JObject.Parse(loadedLots.ToString()).Children();
+            var j2 = JArray.Parse(loadedPillars.ToString());
+            //Debug.Log(j2);
             //Debug.Log(j.Children().ToList());
-            List<JToken> tokens = j.Children().ToList();
-            foreach (var item in tokens)
+            List<JToken> tokensL = j1.Children().ToList();
+            List<JToken> tokensP = j2.Children().ToList();
+            foreach (var item in tokensL)
             {
                 //JProperty jProperty = item.ToObject<JProperty>();
                 //Debug.Log(item.Value<string>());
@@ -119,7 +141,19 @@ namespace KINTEX_Parkinglot.Scripts
                 //Debug.Log(addSumData.In);
                 AddInfoParkingLots(addInfoParkingLots);
             }
-            var jobject = JObject.Parse(loadedJson.ToString());
+            foreach (var item in tokensP)
+            {
+                //Debug.Log(item);
+                var addInfoPillarData = new InfoPillarData
+                {
+                    xPosition = float.Parse(item["xPosition"].ToString()),
+                    zPosition = float.Parse(item["zPosition"].ToString()),
+                    yRotation = float.Parse(item["yRotation"].ToString())
+                };
+                //Debug.Log(addInfoPillarData);
+                AddInfoPillarData(addInfoPillarData);
+            }
+            var jobject = JObject.Parse(loadedLots.ToString());
             foreach (var item in (JToken)jobject)
             {
                 JProperty jProperty = item.ToObject<JProperty>();
