@@ -25,7 +25,7 @@ namespace KINTEX_Parkinglot.Scripts
         //8 color cars
         [SerializeField] private List<GameObject> carModelList;
         private List<InfoParkingLots> _infoParkingLotsList;
-        private List<InfoPillarData> _infoPillarDataList;
+        private List<InfoPillarData> _infoPillarDataList2;
         private int listCnt = 0;
         private float getX = 420f;
         private float getZ = 300f;
@@ -35,7 +35,7 @@ namespace KINTEX_Parkinglot.Scripts
         }
         private void AddInfoPillarData(InfoPillarData infoPillarData)
         {
-            _infoPillarDataList.Add(infoPillarData);
+            _infoPillarDataList2.Add(infoPillarData);
         }
         private void SetInfoParkingLots()
         {
@@ -56,14 +56,11 @@ namespace KINTEX_Parkinglot.Scripts
                 parkingLot.transform.Rotate(0f, yRotation, 0f);
                 parkingLot.transform.parent = parkingLotParent;
             }
-            foreach(var pillar in _infoPillarDataList)
+            foreach(var pillar in _infoPillarDataList2)
             {
-                var xPosition = pillar.xPosition;
-                var zPosition = pillar.zPosition;
-                var yRotation = pillar.yRotation;
                 var pillarspace = Instantiate(Pillar);
-                pillarspace.transform.position = new Vector3(xPosition, 0, zPosition);
-                pillarspace.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+                pillarspace.transform.position = new Vector3(pillar.xPosition, 0, pillar.zPosition);
+                pillarspace.transform.rotation = Quaternion.Euler(0, pillar.yRotation, 0);
                 pillarspace.transform.parent = PillarParent.transform;
             }
         }
@@ -114,9 +111,9 @@ namespace KINTEX_Parkinglot.Scripts
         void Awake()
         {
             _infoParkingLotsList = new List<InfoParkingLots>();
-            _infoPillarDataList = new List<InfoPillarData>();  
+            _infoPillarDataList2 = new List<InfoPillarData>();  
             var loadedLots = Resources.Load<TextAsset>("infoParkingLots");
-            var loadedPillars = Resources.Load<TextAsset>("infoPillarData");
+            var loadedPillars = Resources.Load<TextAsset>("infoPillar");
             var j1 = JObject.Parse(loadedLots.ToString()).Children();
             var j2 = JArray.Parse(loadedPillars.ToString());
             //Debug.Log(j2);

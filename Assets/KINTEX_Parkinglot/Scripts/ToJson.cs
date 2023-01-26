@@ -11,32 +11,33 @@ namespace KINTEX_Parkinglot.Scripts
     public class ToJson : MonoBehaviour
     {
         [SerializeField] private List<GameObject> pillarData;
-        private List<InfoPillarData> _infoPillarDataList;
-        private void GetData(List<GameObject> pillarList)
+        private void GetData(List<GameObject> pillarList, List<InfoPillarData> list)
         {
             foreach (var pillar in pillarList)
             {
-                var pData = new InfoPillarData();
                 Transform[] pList = pillar.GetComponentsInChildren<Transform>();
                 foreach (var infoPillar in pList)
                 {
+                    var pData = new InfoPillarData();
                     if (infoPillar.childCount > 0) continue;
                     Debug.Log(infoPillar);
-                    Debug.Log(infoPillar.position);
-                    Debug.Log(infoPillar.localPosition);
+                    Debug.Log(infoPillar.position.x);
                     pData.xPosition = infoPillar.position.x;
+                    Debug.Log(pData.xPosition);
                     pData.zPosition = infoPillar.position.z;
                     pData.yRotation = infoPillar.rotation.y;
-                    _infoPillarDataList.Add(pData);
+                    list.Add(pData);
                 }
             }
         }
         void Awake()
         {
-            _infoPillarDataList = new List<InfoPillarData>();
-            GetData(pillarData);
-            //Debug.Log(_infoPillarDataList[0].xPosition);
-            FileStream stream = new FileStream(Application.dataPath + "/infoPillarData.json", FileMode.OpenOrCreate);
+            var _infoPillarDataList = new List<InfoPillarData>();
+            GetData(pillarData, _infoPillarDataList);
+            Debug.Log(_infoPillarDataList[0].xPosition);
+            Debug.Log(_infoPillarDataList[1].xPosition);
+            Debug.Log(_infoPillarDataList[2].xPosition);
+            FileStream stream = new FileStream(Application.dataPath + "/test.json", FileMode.OpenOrCreate);
             string jsonData = JsonConvert.SerializeObject(_infoPillarDataList, Formatting.Indented);
             byte[] data = Encoding.UTF8.GetBytes(jsonData);
             stream.Write(data, 0, data.Length);
