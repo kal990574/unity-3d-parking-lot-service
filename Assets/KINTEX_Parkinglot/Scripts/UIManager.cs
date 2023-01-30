@@ -375,7 +375,7 @@ namespace KINTEX_Parkinglot.Scripts
             switch (percentage)
             {
                 case >= 31.0f:
-                    ColorUtility.TryParseHtmlString("#3DE1E5", out parkingLotColor); //out 키워드를 활용한 값변경
+                    ColorUtility.TryParseHtmlString("#65AFEB", out parkingLotColor); //out 키워드를 활용한 값변경
                     break;
                 case > 3.0f:
                     ColorUtility.TryParseHtmlString("#FFD954", out parkingLotColor);
@@ -388,7 +388,7 @@ namespace KINTEX_Parkinglot.Scripts
             return parkingLotColor;
         }
 
-        private void SetParkingLotColor(List<GameObject> parkingLot, bool isOn)
+        private void SetParkingLotqColor(List<GameObject> parkingLot, bool isOn)
         {
         //주차 가능 공간 색 바꾸기
             var colorMaterial = isOn ? parkingPossibleMaterial : parkingInitMaterial;
