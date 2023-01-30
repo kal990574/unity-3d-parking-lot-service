@@ -388,7 +388,7 @@ namespace KINTEX_Parkinglot.Scripts
             return parkingLotColor;
         }
 
-        private void SetParkingLotqColor(List<GameObject> parkingLot, bool isOn)
+        private void SetParkingLotColor(List<GameObject> parkingLot, bool isOn)
         {
         //주차 가능 공간 색 바꾸기
             var colorMaterial = isOn ? parkingPossibleMaterial : parkingInitMaterial;
