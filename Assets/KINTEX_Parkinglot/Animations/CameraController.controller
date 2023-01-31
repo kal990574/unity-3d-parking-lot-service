@@ -163,7 +163,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 1
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -215,7 +215,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 1
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -240,7 +240,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 1
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -362,7 +362,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.009671569
   m_TransitionOffset: 0
   m_ExitTime: 1.0038321
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -486,7 +486,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 1
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -822,7 +822,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 1
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -1039,7 +1039,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.9966872
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -1160,7 +1160,7 @@ AnimatorStateMachine:
     m_Position: {x: 260, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7976660397168576636}
-    m_Position: {x: 470, y: -260, z: 0}
+    m_Position: {x: 450, y: -290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3466238754525927185}
     m_Position: {x: 550, y: 240, z: 0}
@@ -1181,7 +1181,7 @@ AnimatorStateMachine:
     m_Position: {x: 800, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8798849227639595136}
-    m_Position: {x: 810, y: -190, z: 0}
+    m_Position: {x: 810, y: -300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1020683273944852148}
     m_Position: {x: 1370, y: -280, z: 0}
@@ -1193,7 +1193,7 @@ AnimatorStateMachine:
     m_Position: {x: 1160, y: -280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7753128634301354434}
-    m_Position: {x: 470, y: -220, z: 0}
+    m_Position: {x: 500, y: -200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7204419013192112892}
     m_Position: {x: 500, y: -30, z: 0}
@@ -1202,7 +1202,7 @@ AnimatorStateMachine:
     m_Position: {x: 1200, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4479396987907431670}
-    m_Position: {x: 1410, y: -70, z: 0}
+    m_Position: {x: 1440, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8660106292542021079}
     m_Position: {x: 1630, y: -70, z: 0}
@@ -1217,13 +1217,13 @@ AnimatorStateMachine:
     m_Position: {x: 1440, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1385280368702736983}
-    m_Position: {x: 1200, y: 280, z: 0}
+    m_Position: {x: 1210, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -511444208573954122}
     m_Position: {x: 1650, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8984578843348166045}
-    m_Position: {x: 1420, y: 280, z: 0}
+    m_Position: {x: 1450, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7631402185646229080}
     m_Position: {x: 530, y: 140, z: 0}
@@ -1232,19 +1232,19 @@ AnimatorStateMachine:
     m_Position: {x: 540, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7055299536402752087}
-    m_Position: {x: 1810, y: -280, z: 0}
+    m_Position: {x: 1880, y: -220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4611168962494579652}
     m_Position: {x: 770, y: 410, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3399985540839811144}
-    m_Position: {x: 1860, y: -70, z: 0}
+    m_Position: {x: 1840, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5295245204448904467}
-    m_Position: {x: 1610, y: 450, z: 0}
+    m_Position: {x: 1750, y: 520, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3965621181914873199}
-    m_Position: {x: 1170, y: 450, z: 0}
+    m_Position: {x: 1210, y: 490, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1798753534662034981}
     m_Position: {x: 490, y: 420, z: 0}
@@ -1253,16 +1253,16 @@ AnimatorStateMachine:
     m_Position: {x: 440, y: 490, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9038521481311257200}
-    m_Position: {x: 1880, y: 120, z: 0}
+    m_Position: {x: 1900, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2712282099485817400}
-    m_Position: {x: 1880, y: 290, z: 0}
+    m_Position: {x: 1890, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1857877870655752110}
-    m_Position: {x: 1400, y: 450, z: 0}
+    m_Position: {x: 1540, y: 470, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6836166171073633553}
-    m_Position: {x: 1830, y: 460, z: 0}
+    m_Position: {x: 1880, y: 470, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -1285,9 +1285,9 @@ AnimatorController:
   - m_Name: ParkingAreaCamera
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 0
+    m_DefaultInt: 5
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -2038,7 +2038,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 1
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -2331,7 +2331,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 1
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
