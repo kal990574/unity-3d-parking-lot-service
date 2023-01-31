@@ -21,9 +21,6 @@ namespace KINTEX_Parkinglot.Scripts
         [SerializeField] private List<GameObject> parkingLotAreaD;
         [SerializeField] private List<GameObject> parkingLotAreaE;
 
-        [Space(10)]
-        //8 color cars
-        [SerializeField] private List<GameObject> carModelList;
         private List<InfoParkingLots> _infoParkingLotsList;
         private List<InfoPillarData> _infoPillarDataList2;
         private int listCnt = 0;
