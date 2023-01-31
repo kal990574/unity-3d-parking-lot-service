@@ -251,21 +251,21 @@ namespace KINTEX_Parkinglot.Scripts
             parkingLotAreaBImageList[0].color = parkingLotColor;
             parkingLotAreaBImageList[1].color = parkingLotColor;
 
-            totalValue = int.Parse(sectionBTotalParkingLotText.text);
+            totalValue = int.Parse(sectionCTotalParkingLotText.text);
             availableValue = int.Parse(_parkingSumData[3].Free);
             parkingLotColor = SetParkingLotTextColor(totalValue, availableValue);
             sectionCAvailableParkingLotText.text = availableValue.ToString();
             parkingLotAreaCImageList[0].color = parkingLotColor;
             parkingLotAreaCImageList[1].color = parkingLotColor;
 
-            totalValue = int.Parse(sectionBTotalParkingLotText.text);
+            totalValue = int.Parse(sectionDTotalParkingLotText.text);
             availableValue = int.Parse(_parkingSumData[4].Free);
             parkingLotColor = SetParkingLotTextColor(totalValue, availableValue);
             sectionDAvailableParkingLotText.text = availableValue.ToString();
             parkingLotAreaDImageList[0].color = parkingLotColor;
             parkingLotAreaDImageList[1].color = parkingLotColor;
 
-            totalValue = int.Parse(sectionBTotalParkingLotText.text);
+            totalValue = int.Parse(sectionETotalParkingLotText.text);
             availableValue = int.Parse(_parkingSumData[5].Free);
             parkingLotColor = SetParkingLotTextColor(totalValue, availableValue);
             sectionEAvailableParkingLotText.text = availableValue.ToString();
@@ -376,6 +376,8 @@ namespace KINTEX_Parkinglot.Scripts
             switch (percentage)
             {
                 case >= 31.0f:
+                    Debug.Log(totalValue);
+                    Debug.Log(availableValue);
                     ColorUtility.TryParseHtmlString("#65AFEB", out parkingLotColor); //out 키워드를 활용한 값변경
                     break;
                 case > 3.0f:
