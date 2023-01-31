@@ -13,6 +13,9 @@ namespace KINTEX_Parkinglot.Scripts
         [SerializeField] private GameObject Lot;
         [SerializeField] private GameObject Pillar;
         [SerializeField] private GameObject PillarParent;
+        [SerializeField] private GameObject HandicapParent;
+        [SerializeField] private Material parkingInitHandicapMaterial;
+        [SerializeField] private Material parkingBaseHandicapMaterial;
 
         [Space(10)]
         [SerializeField] private List<GameObject> parkingLotAreaA;
@@ -50,6 +53,20 @@ namespace KINTEX_Parkinglot.Scripts
                 var zPosition = float.Parse(lot.Top) / 20;
                 var yRotation = float.Parse(lot.Rotate);
                 var typeName = lot.Type;
+
+                if (typeName.Equals("handicap"))
+                { 
+                    parkingLot.tag = "HandicapZone";
+                    parkingLot.GetComponent<MeshRenderer>().material = parkingInitHandicapMaterial;
+                    parkingLot.transform.localScale = new Vector3(0.5f, 1f, 0.8f);
+
+                    var baseLot = Instantiate(Lot);
+                    baseLot.transform.position = new Vector3(xPosition - getX, 0.09f, getZ - zPosition);
+                    baseLot.transform.Rotate(0f, yRotation, 0f);
+                    baseLot.transform.parent = HandicapParent.transform;
+                    baseLot.GetComponent<MeshRenderer>().material = parkingBaseHandicapMaterial;
+                }
+
                 parkingLot.transform.position = new Vector3(xPosition - getX, 0.1f, getZ - zPosition);
                 parkingLot.transform.Rotate(0f, yRotation, 0f);
                 parkingLot.transform.parent = parkingLotParent;

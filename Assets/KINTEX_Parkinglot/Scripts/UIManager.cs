@@ -76,10 +76,8 @@ namespace KINTEX_Parkinglot.Scripts
         [Space(10)]
         //상태 표시 material
         [SerializeField] private Material parkingInitMaterial;
-        [SerializeField] private Material parkingPossibleMaterial;
-        [SerializeField] private Material parkingImpossibleMaterial;
-        [SerializeField] private Material parkingPossibleHandicapMaterial;
-        [SerializeField] private Material parkingImpossibleHandicapMaterial;
+        [SerializeField] private Material parkingHighlightMaterial;
+        [SerializeField] private Material parkingInitHandicapMaterial;
 
         [Space(10)]
         [SerializeField] private GameObject Lot;
@@ -215,14 +213,15 @@ namespace KINTEX_Parkinglot.Scripts
                         continue;
                     }
                     if (space.childCount > 3) continue;
+                    /*
                     var parkingLotColor = parkingInitMaterial;
-
+                    
                     if (space.CompareTag("HandicapZone"))
                     {
-                        parkingLotColor = parkingPossibleHandicapMaterial;
+                        parkingLotColor = parkingInitHandicapMaterial;
                     }
 
-                    space.GetComponent<MeshRenderer>().material = parkingLotColor;
+                    space.GetComponent<MeshRenderer>().material = parkingLotColor;*/
 
                     // remove Car model
                     if (space.childCount > 0)
@@ -291,10 +290,12 @@ namespace KINTEX_Parkinglot.Scripts
                 //Debug.Log(zoneNo);
                 //Debug.Log(spaceNo);
                 var target = GetParkingLotSpace(area, zoneNo, spaceNo);
-                if (target.CompareTag("HandicapZone"))
+                
+                /*if (target.CompareTag("HandicapZone"))
                 {
-                    target.GetComponent<MeshRenderer>().material = parkingImpossibleHandicapMaterial;
-                };
+                    target.GetComponent<MeshRenderer>().material = parkingInitHandicapMaterial;
+                }*/
+
                 var carNo = Random.Range(0, 7);
                 var carModel = Instantiate(carModelList[carNo], target.position, target.rotation);
                 carModel.transform.parent = target;
@@ -391,7 +392,7 @@ namespace KINTEX_Parkinglot.Scripts
         private void SetParkingLotColor(List<GameObject> parkingLot, bool isOn)
         {
         //주차 가능 공간 색 바꾸기
-            var colorMaterial = isOn ? parkingPossibleMaterial : parkingInitMaterial;
+            var colorMaterial = isOn ? parkingHighlightMaterial : parkingInitMaterial;
 
             foreach (var area in parkingLot)
             {
