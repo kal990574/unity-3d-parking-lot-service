@@ -11,9 +11,7 @@ namespace KINTEX_Parkinglot.Scripts
     public class ApiManager : MonoBehaviour
     {
         public static ApiManager Instance = null;
-        
         private const string URL = "https://kintex.watchmile.com/api/v1/parking/slot";
-
         private const int DELAY_TIME = 60;
 
         void Awake()
@@ -30,7 +28,7 @@ namespace KINTEX_Parkinglot.Scripts
         
         void Start()
         {
-        //코루틴 시작
+        //Coroutine 시작
             StartCoroutine(ParkingLotLoop());
         }
         
