@@ -20,6 +20,7 @@ namespace KINTEX_Parkinglot.Scripts
             {
                 Destroy(this.gameObject);
             }
+
             else
             {
                 Instance = this;
@@ -28,13 +29,13 @@ namespace KINTEX_Parkinglot.Scripts
         
         void Start()
         {
-        //Coroutine 시작
+            // Coroutine 시작
             StartCoroutine(ParkingLotLoop());
         }
         
         public IEnumerator GetParkingLotData()
         {
-            //API 연동
+            // API 연동
             const string uri = URL;
             using UnityWebRequest webRequest = UnityWebRequest.Get(uri);
             yield return webRequest.SendWebRequest();
@@ -48,16 +49,18 @@ namespace KINTEX_Parkinglot.Scripts
                 case UnityWebRequest.Result.DataProcessingError:
                     Debug.LogError(pages[page] + ": Error: " + webRequest.error);
                     break;
+
                 case UnityWebRequest.Result.ProtocolError:
                     Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
                     break;
-                //webresquest success
+
+                // webresquest success
                 case UnityWebRequest.Result.Success:
                     var jsonResult = Encoding.UTF8.GetString(webRequest.downloadHandler.data);
                     var jObject = JObject.Parse(jsonResult);
                     var jToken = jObject["lists"];
 
-                    //jToken -> 각각의 parkinglotdata info
+                    // jToken -> 각각의 parkinglotdata info
                     UIManager.Instance.ClearParkingLotList();
                     UIManager.Instance.ClearParkingSumData();
 
@@ -120,7 +123,7 @@ namespace KINTEX_Parkinglot.Scripts
 
         private IEnumerator ParkingLotLoop()
         {
-        //코루틴을 통해 DELAY_TIME 당 1번씩 API 호출
+            // Coroutine을 통해 DELAY_TIME 당 1번씩 API 호출
             StartCoroutine(GetParkingLotData());
             
             yield return new WaitForSeconds(DELAY_TIME);

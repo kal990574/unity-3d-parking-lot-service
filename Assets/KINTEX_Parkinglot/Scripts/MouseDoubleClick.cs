@@ -5,7 +5,7 @@ namespace KINTEX_Parkinglot.Scripts
 {
     public class MouseDoubleClick : MonoBehaviour, IPointerClickHandler
     {
-        //종료 스크립트
+        // 종료 스크립트
         public void OnPointerClick(PointerEventData eventData)
         {
             if (eventData.clickCount == 2)
