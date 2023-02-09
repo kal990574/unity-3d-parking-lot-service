@@ -6,7 +6,6 @@ namespace KINTEX_Parkinglot.Scripts
     {
         // 메인메뉴 버튼 클릭시 스크립트
         [SerializeField] private int areaNo;
-
         public void ClickToggle(bool isOn)
         {
             if (isOn)

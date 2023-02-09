@@ -17,6 +17,7 @@ namespace KINTEX_Parkinglot.Scripts
                 foreach (var infoPillar in infoPillarList)
                 {
                     var infoPillarData = new InfoPillarData();
+
                     if (infoPillar.childCount > 0)
                     {
                         continue;
