@@ -14,9 +14,6 @@ namespace KINTEX_Parkinglot.Scripts
         
         private const string URL = "https://kintex.watchmile.com/api/v1/parking/slot";
 
-        // private const string PARKING_LOT_URI =
-        //     "https://kintex.watchmile.com/api/v1/parking/slot"
-
         private const int DELAY_TIME = 60;
 
         void Awake()
@@ -41,7 +38,6 @@ namespace KINTEX_Parkinglot.Scripts
         {
             //API 연동
             const string uri = URL;
-            //Debug.Log(uri);
             using UnityWebRequest webRequest = UnityWebRequest.Get(uri);
             yield return webRequest.SendWebRequest();
         
@@ -60,23 +56,22 @@ namespace KINTEX_Parkinglot.Scripts
                 //webresquest success
                 case UnityWebRequest.Result.Success:
                     var jsonResult = Encoding.UTF8.GetString(webRequest.downloadHandler.data);
-                    //Debug.Log(jsonResult);
                     var jObject = JObject.Parse(jsonResult);
-                    //Debug.Log(jObject);
                     var jToken = jObject["lists"];
+
                     //jToken -> 각각의 parkinglotdata info
-                    //Debug.Log(jToken);
                     UIManager.Instance.ClearParkingLotList();
                     UIManager.Instance.ClearParkingSumData();
-                    //Debug.Log(jObject["sum"]);
-                    List<JToken> jlist = new List<JToken>();
-                    jlist.Add(jObject["sum"]["total"]);
-                    jlist.Add(jObject["sum"]["A"]);
-                    jlist.Add(jObject["sum"]["B"]);
-                    jlist.Add(jObject["sum"]["C"]);
-                    jlist.Add(jObject["sum"]["D"]);
-                    jlist.Add(jObject["sum"]["E"]);
-                    foreach (JToken item in jlist)
+
+                    List<JToken> jList = new List<JToken>();
+                    jList.Add(jObject["sum"]["total"]);
+                    jList.Add(jObject["sum"]["A"]);
+                    jList.Add(jObject["sum"]["B"]);
+                    jList.Add(jObject["sum"]["C"]);
+                    jList.Add(jObject["sum"]["D"]);
+                    jList.Add(jObject["sum"]["E"]);
+
+                    foreach (JToken item in jList)
                     {
                         var addSumData = new ParkingSumData
                         {
@@ -85,12 +80,12 @@ namespace KINTEX_Parkinglot.Scripts
                             Free = item["free"].ToString(),
                             In = item["in"].ToString()
                         };
-                        //Debug.Log(addSumData.In);
+
                         UIManager.Instance.AddSumDataList(addSumData);
                     }
+
                     foreach (JToken item in jToken)
                     {
-                        //Debug.Log(item);
                             var addParkingLotData = new ParkingLotData
                             {
                                 SenserName = item["senser_name"].ToString(),
@@ -115,6 +110,7 @@ namespace KINTEX_Parkinglot.Scripts
                                 SlotStatusIndex = item["slot_status_index"].ToString(),
                                 SpaceName = item["space_name"].ToString()
                              };
+
                             UIManager.Instance.AddParkingLotList(addParkingLotData);
                     }
                         
