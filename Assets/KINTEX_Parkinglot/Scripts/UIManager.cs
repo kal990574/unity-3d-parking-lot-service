@@ -99,6 +99,7 @@ namespace KINTEX_Parkinglot.Scripts
 
         void Awake()
         {
+            // 유니티 싱글톤 형식
             if (Instance != null)
             {
                 Destroy(this.gameObject);
@@ -240,6 +241,7 @@ namespace KINTEX_Parkinglot.Scripts
         private void SetParkingLotInformationText()
         {
             // 주차장 현황 UI 세팅
+            // UI_Canvas 내 text에 접근해 구역별 차량 개수 초기화
             availableParkingLotText.text = _parkingSumData[0].Free;
 
             var totalValue = int.Parse(sectionATotalParkingLotText.text);
@@ -287,6 +289,7 @@ namespace KINTEX_Parkinglot.Scripts
                     continue;
                 }
 
+                // API 상에 SlotName : @@-@@-@@ format
                 String[] LotNo = parkingLot.SlotName.Split('-');
                 var area = int.Parse(LotNo[0]);
                 var zoneNo = int.Parse(LotNo[1]);
@@ -371,10 +374,11 @@ namespace KINTEX_Parkinglot.Scripts
             var percentage = (availableValue / (float)totalValue) * 100;
             Color parkingLotColor;
 
+            //out 키워드를 활용한 값변경
             switch (percentage)
             {
                 case >= 31.0f:
-                    ColorUtility.TryParseHtmlString("#65AFEB", out parkingLotColor); //out 키워드를 활용한 값변경
+                    ColorUtility.TryParseHtmlString("#65AFEB", out parkingLotColor); 
                     break;
 
                 case > 3.0f:

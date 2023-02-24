@@ -16,6 +16,8 @@ namespace KINTEX_Parkinglot.Scripts
 
         void Awake()
         {
+            // 싱글톤을 통해 하나의 Instance에 접근
+            // 타 스크립트에서 해당 스크립트의 Instance 접근 용이
             if (Instance != null)
             {
                 Destroy(this.gameObject);
@@ -35,7 +37,7 @@ namespace KINTEX_Parkinglot.Scripts
         
         public IEnumerator GetParkingLotData()
         {
-            // API 연동
+            // API 연동을 위해 유니티 엔진 내부 클래스인 UnityWebRequest()를 활용
             const string uri = URL;
             using UnityWebRequest webRequest = UnityWebRequest.Get(uri);
             yield return webRequest.SendWebRequest();
@@ -45,6 +47,7 @@ namespace KINTEX_Parkinglot.Scripts
         
             switch (webRequest.result)
             {
+                // API 연동 실패 시 break;
                 case UnityWebRequest.Result.ConnectionError:
                 case UnityWebRequest.Result.DataProcessingError:
                     Debug.LogError(pages[page] + ": Error: " + webRequest.error);
@@ -64,6 +67,7 @@ namespace KINTEX_Parkinglot.Scripts
                     UIManager.Instance.ClearParkingLotList();
                     UIManager.Instance.ClearParkingSumData();
 
+                    // 요소에 접근하기 위해 JObject 배열 요소에 접근
                     List<JToken> jList = new List<JToken>();
                     jList.Add(jObject["sum"]["total"]);
                     jList.Add(jObject["sum"]["A"]);
