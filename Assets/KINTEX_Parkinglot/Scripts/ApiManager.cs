@@ -11,13 +11,15 @@ namespace KINTEX_Parkinglot.Scripts
     public class ApiManager : MonoBehaviour
     {
         public static ApiManager Instance = null;
-        private const string URL = "https://kintex.watchmile.com/api/v1/parking/slot";
+
+        private const string URL = "";
+        // private const string URL = "https://kintex.watchmile.com/api/v1/parking/slot";
         private const int DELAY_TIME = 60;
 
         void Awake()
         {
-            // ½Ì±ÛÅæÀ» ÅëÇØ ÇÏ³ªÀÇ Instance¿¡ Á¢±Ù
-            // Å¸ ½ºÅ©¸³Æ®¿¡¼­ ÇØ´ç ½ºÅ©¸³Æ®ÀÇ Instance Á¢±Ù ¿ëÀÌ
+            // ï¿½Ì±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ Instanceï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            // Å¸ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ Instance ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (Instance != null)
             {
                 Destroy(this.gameObject);
@@ -31,13 +33,13 @@ namespace KINTEX_Parkinglot.Scripts
         
         void Start()
         {
-            // Coroutine ½ÃÀÛ
+            // Coroutine ï¿½ï¿½ï¿½ï¿½
             StartCoroutine(ParkingLotLoop());
         }
         
         public IEnumerator GetParkingLotData()
         {
-            // API ¿¬µ¿À» À§ÇØ À¯´ÏÆ¼ ¿£Áø ³»ºÎ Å¬·¡½ºÀÎ UnityWebRequest()¸¦ È°¿ë
+            // API ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ UnityWebRequest()ï¿½ï¿½ È°ï¿½ï¿½
             const string uri = URL;
             using UnityWebRequest webRequest = UnityWebRequest.Get(uri);
             yield return webRequest.SendWebRequest();
@@ -47,7 +49,7 @@ namespace KINTEX_Parkinglot.Scripts
         
             switch (webRequest.result)
             {
-                // API ¿¬µ¿ ½ÇÆÐ ½Ã break;
+                // API ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ break;
                 case UnityWebRequest.Result.ConnectionError:
                 case UnityWebRequest.Result.DataProcessingError:
                     Debug.LogError(pages[page] + ": Error: " + webRequest.error);
@@ -63,11 +65,11 @@ namespace KINTEX_Parkinglot.Scripts
                     var jObject = JObject.Parse(jsonResult);
                     var jToken = jObject["lists"];
 
-                    // jToken -> °¢°¢ÀÇ parkinglotdata info
+                    // jToken -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ parkinglotdata info
                     UIManager.Instance.ClearParkingLotList();
                     UIManager.Instance.ClearParkingSumData();
 
-                    // ¿ä¼Ò¿¡ Á¢±ÙÇÏ±â À§ÇØ JObject ¹è¿­ ¿ä¼Ò¿¡ Á¢±Ù
+                    // ï¿½ï¿½Ò¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ JObject ï¿½è¿­ ï¿½ï¿½Ò¿ï¿½ ï¿½ï¿½ï¿½ï¿½
                     List<JToken> jList = new List<JToken>();
                     jList.Add(jObject["sum"]["total"]);
                     jList.Add(jObject["sum"]["A"]);
@@ -127,7 +129,7 @@ namespace KINTEX_Parkinglot.Scripts
 
         private IEnumerator ParkingLotLoop()
         {
-            // CoroutineÀ» ÅëÇØ DELAY_TIME ´ç 1¹ø¾¿ API È£Ãâ
+            // Coroutineï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DELAY_TIME ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ API È£ï¿½ï¿½
             StartCoroutine(GetParkingLotData());
             
             yield return new WaitForSeconds(DELAY_TIME);
