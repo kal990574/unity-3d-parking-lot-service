@@ -13,7 +13,6 @@ namespace KINTEX_Parkinglot.Scripts
         public static ApiManager Instance = null;
 
         private const string URL = "";
-        // private const string URL = "https://kintex.watchmile.com/api/v1/parking/slot";
         private const int DELAY_TIME = 60;
 
         void Awake()
