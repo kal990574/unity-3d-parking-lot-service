@@ -48,7 +48,6 @@ namespace KINTEX_Parkinglot.Scripts
         
             switch (webRequest.result)
             {
-                // API ���� ���� �� break;
                 case UnityWebRequest.Result.ConnectionError:
                 case UnityWebRequest.Result.DataProcessingError:
                     Debug.LogError(pages[page] + ": Error: " + webRequest.error);
@@ -128,7 +127,7 @@ namespace KINTEX_Parkinglot.Scripts
 
         private IEnumerator ParkingLotLoop()
         {
-            // Coroutine�� ���� DELAY_TIME �� 1���� API ȣ��
+            // Coroutine
             StartCoroutine(GetParkingLotData());
             
             yield return new WaitForSeconds(DELAY_TIME);

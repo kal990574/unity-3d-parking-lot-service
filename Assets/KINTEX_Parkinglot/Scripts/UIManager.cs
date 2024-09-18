@@ -14,57 +14,57 @@ namespace KINTEX_Parkinglot.Scripts
     {
         public static UIManager Instance = null;
 
-        // Ä«¸Þ¶ó ¿òÁ÷ÀÓ
+        // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         [SerializeField] private Animator mainCameraAnimator;
 
-        // ÇÊµå »çÀÌ ¿©¹é
+        // ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         [Space(10)]
-        // ÀüÃ¼, A,B,C,D,E ¸Þ´º ¹öÆ°
+        // ï¿½ï¿½Ã¼, A,B,C,D,E ï¿½Þ´ï¿½ ï¿½ï¿½Æ°
         [SerializeField] private List<Toggle> menuButtonList;
 
         [Space(10)]
-        // ÀüÃ¼ ÁÖÂ÷ °¡´É °ø°£
+        // ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         [SerializeField] private TMP_Text availableParkingLotText;
 
         [Space(10)]
-        // sector A ÁÖÂ÷ °¡´É °ø°£
+        // sector A ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         [SerializeField] private TMP_Text sectionATotalParkingLotText;
         [SerializeField] private TMP_Text sectionAAvailableParkingLotText;
 
         [Space(10)]
-        // sector B ÁÖÂ÷ °¡´É °ø°£
+        // sector B ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         [SerializeField] private TMP_Text sectionBTotalParkingLotText;
         [SerializeField] private TMP_Text sectionBAvailableParkingLotText;
 
         [Space(10)]
-        // sector C ÁÖÂ÷ °¡´É °ø°£
+        // sector C ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         [SerializeField] private TMP_Text sectionCTotalParkingLotText;
         [SerializeField] private TMP_Text sectionCAvailableParkingLotText;
 
         [Space(10)]
-        // sector D ÁÖÂ÷ °¡´É °ø°£
+        // sector D ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         [SerializeField] private TMP_Text sectionDTotalParkingLotText;
         [SerializeField] private TMP_Text sectionDAvailableParkingLotText;
 
         [Space(10)]
-        // sector E ÁÖÂ÷ °¡´É °ø°£
+        // sector E ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         [SerializeField] private TMP_Text sectionETotalParkingLotText;
         [SerializeField] private TMP_Text sectionEAvailableParkingLotText;
 
         [Space(10)]
-        // ½Ã°£ °»½Å
+        // ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
         [SerializeField] private TMP_Text refreshTimeText;
 
         [Space(10)]
-        // Á¾·á ÆË¾÷
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½
         [SerializeField] private GameObject closePopup;
 
         [Space(10)]
-        // ÁÖÂ÷ °¡´É »ö change toggle
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ change toggle
         [SerializeField] private Toggle CheckParkingToggle;
 
         [Space(10)]
-        // ±¸¿ª Ç¥Çö UI image
+        // ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ UI image
         [SerializeField] private List<Image> parkingLotAreaAImageList;
         [SerializeField] private List<Image> parkingLotAreaBImageList;
         [SerializeField] private List<Image> parkingLotAreaCImageList;
@@ -72,7 +72,7 @@ namespace KINTEX_Parkinglot.Scripts
         [SerializeField] private List<Image> parkingLotAreaEImageList;
 
         [Space(10)]
-        // ±¸¿ªÀÇ °¢ Ä­ object
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä­ object
         [SerializeField] private List<GameObject> parkingLotAreaA;
         [SerializeField] private List<GameObject> parkingLotAreaB;
         [SerializeField] private List<GameObject> parkingLotAreaC;
@@ -80,7 +80,7 @@ namespace KINTEX_Parkinglot.Scripts
         [SerializeField] private List<GameObject> parkingLotAreaE;
 
         [Space(10)]
-        // »óÅÂ Ç¥½Ã material
+        // ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ material
         [SerializeField] private Material parkingInitMaterial;
         [SerializeField] private Material parkingHighlightMaterial;
         [SerializeField] private Material parkingInitHandicapMaterial;
@@ -99,7 +99,7 @@ namespace KINTEX_Parkinglot.Scripts
 
         void Awake()
         {
-            // À¯´ÏÆ¼ ½Ì±ÛÅæ Çü½Ä
+            // ï¿½ï¿½ï¿½ï¿½Æ¼ ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (Instance != null)
             {
                 Destroy(this.gameObject);
@@ -112,14 +112,14 @@ namespace KINTEX_Parkinglot.Scripts
 
         private void Start()
         {
-            // ÁÖÂ÷ °ø°£ ¸®½ºÆ®
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
             _parkingLotList = new List<ParkingLotData>();
             _parkingSumData = new List<ParkingSumData>();
         }
 
         public void AddParkingLotList(ParkingLotData parkingLotData)
         {
-            // ÁÖÂ÷ °ø°£ API È°¿ë Ãß°¡
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ API È°ï¿½ï¿½ ï¿½ß°ï¿½
             _parkingLotList.Add(parkingLotData);
         }
        
@@ -130,32 +130,32 @@ namespace KINTEX_Parkinglot.Scripts
 
         public void ClearParkingLotList()
         {
-            // ÁÖÂ÷ °ø°£ ÃÊ±âÈ­
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
             _parkingLotList.Clear();
         }
         public void ClearParkingSumData()
         {
-            // ÁÖÂ÷ °ø°£ ÃÊ±âÈ­
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
             _parkingSumData.Clear();
         }
 
-        // ÀüÃ¼ ÁÖÂ÷ °ø°£ setting
+        // ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ setting
         public void SetParkingLot()
         {
-            // °¢ ÁÖÂ÷ ±¸¿ª ÃÊ±âÈ­
+            // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
             InitializeParkingLot(parkingLotAreaA);
             InitializeParkingLot(parkingLotAreaB);
             InitializeParkingLot(parkingLotAreaC);
             InitializeParkingLot(parkingLotAreaD);
             InitializeParkingLot(parkingLotAreaE);
 
-            // ÁÖÂ÷Àå ÇöÈ² UI ¼¼ÆÃ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È² UI ï¿½ï¿½ï¿½ï¿½
             SetParkingLotInformationText();
 
-            // ½Ã°£ ÃÊ±âÈ­
+            // ï¿½Ã°ï¿½ ï¿½Ê±ï¿½È­
             SetRefreshTime();
 
-            // ÁÖÂ÷µÇ¾î ÀÖ´Â °ø°£¿¡ carmodel À§Ä¡ ½ÃÅ°±â
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ carmodel ï¿½ï¿½Ä¡ ï¿½ï¿½Å°ï¿½ï¿½
             AdjustParkingLotData();
 
             if (CheckParkingToggle.isOn)
@@ -167,8 +167,8 @@ namespace KINTEX_Parkinglot.Scripts
 
         public void ClickAreaButton(int value)
         {
-            // animator ¼Ó parameter -> parkingareaCamera °ªÀ» value·Î ¼³Á¤
-            // camera transitionÀÌ value¿¡ µû¶ó ÀÛµ¿
+            // animator ï¿½ï¿½ parameter -> parkingareaCamera ï¿½ï¿½ï¿½ï¿½ valueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            // camera transitionï¿½ï¿½ valueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ûµï¿½
             mainCameraAnimator.SetInteger("ParkingAreaCamera", value);
 
             StartCoroutine(WaitMenuAnimatorPlay());
@@ -176,13 +176,13 @@ namespace KINTEX_Parkinglot.Scripts
 
         public void ClickRefreshButton()
         {
-            // refresh button click ½Ã
+            // refresh button click ï¿½ï¿½
             StartCoroutine(ApiManager.Instance.GetParkingLotData());
         }
 
         public void ClickCheckParkingLot(bool isOn)
         {
-            // ÁÖÂ÷ °¡´É °ø°£ color change
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ color change
             SetParkingLotColor(parkingLotAreaA, isOn);
             SetParkingLotColor(parkingLotAreaB, isOn);
             SetParkingLotColor(parkingLotAreaC, isOn);
@@ -192,13 +192,13 @@ namespace KINTEX_Parkinglot.Scripts
 
         public void ShowAndHideClosePopup(bool value)
         {
-            // Á¾·á ¸í·É½Ã Á¾·áÆË¾÷ abled
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ë¾ï¿½ abled
             closePopup.SetActive(value);
         }
 
         public bool GetParkingLotAvailableToggleValue()
         {
-            // ÁÖÂ÷ °¡´É »ö Åä±Û°ª ¸®ÅÏ
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Û°ï¿½ ï¿½ï¿½ï¿½ï¿½
             return CheckParkingToggle.isOn;
         }
 
@@ -213,7 +213,7 @@ namespace KINTEX_Parkinglot.Scripts
 
         private void InitializeParkingLot(List<GameObject> areaList)
         {
-            // °¢ ÁÖÂ÷ ±¸¿ª ÃÊ±âÈ­
+            // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
             foreach (var area in areaList)
             {
                 Transform[] spaceList = area.GetComponentsInChildren<Transform>();
@@ -240,8 +240,8 @@ namespace KINTEX_Parkinglot.Scripts
 
         private void SetParkingLotInformationText()
         {
-            // ÁÖÂ÷Àå ÇöÈ² UI ¼¼ÆÃ
-            // UI_Canvas ³» text¿¡ Á¢±ÙÇØ ±¸¿ªº° Â÷·® °³¼ö ÃÊ±âÈ­
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È² UI ï¿½ï¿½ï¿½ï¿½
+            // UI_Canvas ï¿½ï¿½ textï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
             availableParkingLotText.text = _parkingSumData[0].Free;
 
             var totalValue = int.Parse(sectionATotalParkingLotText.text);
@@ -281,7 +281,7 @@ namespace KINTEX_Parkinglot.Scripts
         }
         private void AdjustParkingLotData()
         {
-            // ÁÖÂ÷µÇ¾î ÀÖ´Â °ø°£¿¡ carmodel À§Ä¡ ½ÃÅ°±â
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ carmodel ï¿½ï¿½Ä¡ ï¿½ï¿½Å°ï¿½ï¿½
             foreach (var parkingLot in _parkingLotList)
             {
                 if (parkingLot.SlotStatusIndex.Equals("2"))
@@ -289,7 +289,7 @@ namespace KINTEX_Parkinglot.Scripts
                     continue;
                 }
 
-                // API »ó¿¡ SlotName : @@-@@-@@ format
+                // API ï¿½ï¿½ SlotName : @@-@@-@@ format
                 String[] LotNo = parkingLot.SlotName.Split('-');
                 var area = int.Parse(LotNo[0]);
                 var zoneNo = int.Parse(LotNo[1]);
@@ -304,7 +304,7 @@ namespace KINTEX_Parkinglot.Scripts
 
         public Transform GetParkingLotSpace(int area, int zoneNo, int spaceNo)
         {
-            // area, zoneNo, spaceNo¸¦ ÅëÇØ ÁÖÂ÷°ø°£ ÃßÃâ
+            // area, zoneNo, spaceNoï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             List<GameObject> targetParkingLotList = null;
 
             if (2 <= area && area <= 8) 
@@ -346,7 +346,7 @@ namespace KINTEX_Parkinglot.Scripts
 
         private void SetRefreshTime()
         {
-            // ÇöÀç½Ã°¢ 
+            // ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ 
             refreshTimeText.text = DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss");
         }
 
@@ -360,7 +360,7 @@ namespace KINTEX_Parkinglot.Scripts
 
         private IEnumerator WaitMenuAnimatorPlay()
         {
-            // Ä«¸Þ¶ó move ½Ã ¸Þ´º¹öÆ° ºñÈ°¼ºÈ­
+            // Ä«ï¿½Þ¶ï¿½ move ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½Æ° ï¿½ï¿½È°ï¿½ï¿½È­
             EnableAndDisableMenuButton(false);
 
             yield return new WaitForSeconds(3);
@@ -370,11 +370,11 @@ namespace KINTEX_Parkinglot.Scripts
 
         private Color SetParkingLotTextColor(int totalValue, int availableValue)
         {
-            // ÀÜ¿© ÁÖÂ÷ Áö¿ªÀÇ text color º¯°æ
+            // ï¿½Ü¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ text color ï¿½ï¿½ï¿½ï¿½
             var percentage = (availableValue / (float)totalValue) * 100;
             Color parkingLotColor;
 
-            //out Å°¿öµå¸¦ È°¿ëÇÑ °ªº¯°æ
+            //out Å°ï¿½ï¿½ï¿½å¸¦ È°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             switch (percentage)
             {
                 case >= 31.0f:
@@ -395,7 +395,7 @@ namespace KINTEX_Parkinglot.Scripts
 
         private void SetParkingLotColor(List<GameObject> parkingLot, bool isOn)
         {
-            // ÁÖÂ÷ °¡´É °ø°£ »ö ¹Ù²Ù±â
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù²Ù±ï¿½
             var colorMaterial = isOn ? parkingHighlightMaterial : parkingInitMaterial;
 
             foreach (var area in parkingLot)
