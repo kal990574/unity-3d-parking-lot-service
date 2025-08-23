@@ -1,71 +1,44 @@
-## Unity 기능 구현
+# Unity 3D Parking-Lot Service
 
-### 1. HTTP 통신을 위한 UnityWebRequest 활용
-Unity의 `UnityWebRequest` 클래스를 사용하여 서버와의 HTTP 통신을 처리합니다. 이를 통해 GET, POST 등의 요청을 보낼 수 있으며, 비동기 방식으로 데이터를 처리하여 사용자 경험을 최적화할 수 있습니다.
+유니티(Unity) 기반으로 제작한 **3D 주차장 관제 서비스** 프로젝트입니다.  
+실시간 API 데이터를 받아와 주차장의 **슬롯 상태**와 **차량 배치**를 시각화하며,  
+UI 조작을 통한 **카메라 시점 전환**과 **자동 갱신** 기능을 제공합니다.
 
-```csharp
-using UnityEngine;
-using UnityEngine.Networking;
-using System.Collections;
+---
 
-IEnumerator GetRequest(string uri)
-{
-    using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
-    {
-        yield return webRequest.SendWebRequest();
+## ✨ 주요 기능 (Features)
 
-        if (webRequest.result == UnityWebRequest.Result.ConnectionError)
-        {
-            Debug.LogError("Error: " + webRequest.error);
-        }
-        else
-        {
-            Debug.Log("Received: " + webRequest.downloadHandler.text);
-        }
-    }
-}
-```
+- **API 연동 (UnityWebRequest)**  
+  - 외부 서버에서 주차 상태 데이터를 가져오기  
+  - 에러 처리 및 응답 코드 확인 기능 포함  
 
-### 2. 사용자 입력에 따른 카메라 움직임 구현
-사용자의 입력에 따라 카메라가 움직이도록 `UI_Canvas`와 연동하여 카메라 애니메이터 기능을 구현합니다. 이를 통해 직관적인 UI로 카메라의 시점을 조정할 수 있습니다.
+- **데이터 갱신 (Coroutine)**  
+  - 일정 주기로 서버 데이터를 갱신하여 UI에 반영  
 
-```csharp
-public class CameraController : MonoBehaviour
-{
-    public Animator cameraAnimator;
+- **JSON 파싱 (Newtonsoft.Json)**  
+  - `JObject`, `JToken`을 활용한 동적 키 파싱  
 
-    public void MoveCamera(string direction)
-    {
-        cameraAnimator.SetTrigger(direction);
-    }
-}
-```
+- **카메라 컨트롤 (Animator + UI Canvas)**  
+  - 버튼 입력 → Animator Trigger → 시점 전환  
 
-### 3. JSON 형식의 API 데이터 처리
-`Newtonsoft.Json` 라이브러리의 `JObject`와 `JToken`을 활용하여 JSON 형식의 데이터를 파싱합니다. 이를 통해 API로부터 받은 데이터를 효율적으로 처리할 수 있습니다.
+- **주차면/차량 시각화**  
+  - 슬롯 프리팹을 동적으로 배치 및 색상/상태 변경  
 
-```csharp
-using Newtonsoft.Json.Linq;
+---
 
-public void ParseJsonData(string jsonString)
-{
-    JObject jsonObject = JObject.Parse(jsonString);
-    string data = jsonObject["key"].ToString();
-    Debug.Log("Parsed Data: " + data);
-}
-```
+## 📸 데모 (Demo)
 
-### 4. 주기적인 API 데이터 요청
-코루틴(Coroutine)을 활용하여 주기적으로 API 데이터를 요청합니다. 일정 시간 간격으로 서버에 데이터를 요청하여 실시간 정보를 업데이트할 수 있습니다.
+- 상단 버튼 클릭으로 카메라 전환  
+- 주기적인 데이터 갱신으로 주차장 상태 자동 업데이트  
 
-```csharp
-IEnumerator FetchDataPeriodically(string uri, float delay)
-{
-    while (true)
-    {
-        StartCoroutine(GetRequest(uri));
-        yield return new WaitForSeconds(delay);
-    }
-}
-```
+---
 
+## ⚙️ 설치 & 실행 방법 (Getting Started)
+
+1. **환경 요구사항**
+   - Unity 2021 LTS 이상  
+   - Newtonsoft.Json (Unity 패키지 매니저 설치)  
+
+2. **설치**
+   ```bash
+   git clone https://github.com/kal990574/unity-3d-parking-lot-service.git
