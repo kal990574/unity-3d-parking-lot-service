@@ -28,6 +28,8 @@ UI 조작을 통한 **카메라 시점 전환**과 **자동 갱신** 기능을 �
 
 ## 📸 데모 (Demo)
 
+[![Watch the video](https://img.youtube.com/vi/adHMPoeKwEE/0.jpg)](https://youtu.be/adHMPoeKwEE)
+
 - 상단 버튼 클릭으로 카메라 전환  
 - 주기적인 데이터 갱신으로 주차장 상태 자동 업데이트  
 
